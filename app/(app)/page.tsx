@@ -25,7 +25,7 @@ export default async function HomePage() {
 								height={65}
 								src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
 								width={65}
-								className="mx-auto"
+								className="mx-auto brightness-0"
 							/>
 						</picture>
 					</div>
