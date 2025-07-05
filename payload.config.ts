@@ -8,6 +8,7 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 import { fileURLToPath } from "url";
 import { Media } from "./collections/Media";
+import { Projects } from "./collections/Projects";
 import { Users } from "./collections/Users";
 import { env } from "./env/server";
 
@@ -21,7 +22,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media],
+	collections: [Users, Media, Projects],
 	editor: lexicalEditor(),
 	secret: env.PAYLOAD_SECRET,
 	typescript: {
@@ -35,7 +36,9 @@ export default buildConfig({
 		payloadCloudPlugin(),
 		s3Storage({
 			collections: {
-				media: true,
+				media: {
+					prefix: "media",
+				},
 			},
 			bucket: env.S3_BUCKET,
 			config: {
